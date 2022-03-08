@@ -50,13 +50,7 @@ const CartProvider = ({ children }) => {
     setTotalPrice(totalPrice - price);
     let newCart = cartItems.map((it) => {
       if (it.id === itemId) {
-        if (it.quantity === 0) {
-          let updatedCart = cartItems.filter((it) => {
-            return it.id !== itemId;
-          });
-        } else {
-          return { ...it, quantity: it.quantity - 1 };
-        }
+        return { ...it, quantity: it.quantity - 1 };
       } else {
         return it;
       }
